@@ -1,0 +1,91 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model DataTransfer.UserRequest
+
+
+<h1>My profile</h1>
+
+@if (ViewData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">@ViewData["ErrorMessage"]</div>
+}
+@if (ViewData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">@ViewData["SuccessMessage"]</div>
+}
+
+<hr />
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Source)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Source)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FistName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FistName)
+        </dd>
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MiddleName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MiddleName)
+        </dd>
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HireDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HireDate)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+        <!-- Thêm các trường dữ liệu khác của thành viên cần hiển thị -->
+    </dl>
+
+    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.UserId">Edit Profile</a>
+ @*   @{
+        String url = "https://localhost:7042/Order/OrderUser/" + @Model.MemberId;
+        <a class="btn btn-warning" href="@url">My Order</a>
+    }*@
+</div>

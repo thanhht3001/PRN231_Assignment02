@@ -1,0 +1,66 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model DataTransfer.BookRequest
+
+@{
+    ViewData["Title"] = "Edit Profile";
+}
+
+<h1>Edit Profile</h1>
+
+@if (ViewData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">@ViewData["ErrorMessage"]</div>
+}
+@if (ViewData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">@ViewData["SuccessMessage"]</div>
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group mb-2">
+                <label class="control-label mb-1">Title</label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="Type" class="control-label mb-1">Type</label>
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="Price" class="control-label mb-1">Price</label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+
+            <input type="hidden" asp-for="BookId" />
+            <input type="hidden" asp-for="PubId" />
+            <input type="hidden" asp-for="Advance" />
+            <input type="hidden" asp-for="Royalty" />
+            <input type="hidden" asp-for="YtdSales" />
+            <input type="hidden" asp-for="Notes" />
+            <input type="hidden" asp-for="PublishedDate" />
+       
+        </form>
+
+
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

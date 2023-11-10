@@ -1,0 +1,61 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model DataTransfer.PublisherRequest
+
+@{
+    ViewData["Title"] = "Edit Profile";
+}
+
+<h1>Edit Profile</h1>
+
+@if (ViewData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">@ViewData["ErrorMessage"]</div>
+}
+@if (ViewData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">@ViewData["SuccessMessage"]</div>
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group mb-2">
+                <label class="control-label mb-1">PublisherName</label>
+                <input asp-for="PublisherName" class="form-control" />
+                <span asp-validation-for="PublisherName" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="City" class="control-label mb-1">Type</label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="Country" class="control-label mb-1">Price</label>
+                <input asp-for="Country" class="form-control" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+
+            <input type="hidden" asp-for="PubId" />
+            <input type="hidden" asp-for="State" />
+            
+        </form>
+
+
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

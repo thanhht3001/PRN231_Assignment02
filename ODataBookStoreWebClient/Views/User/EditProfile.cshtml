@@ -1,0 +1,70 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model DataTransfer.UserRequest
+
+@{
+    ViewData["Title"] = "Edit Profile";
+}
+
+<h1>Edit Profile</h1>
+
+@if (ViewData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">@ViewData["ErrorMessage"]</div>
+}
+@if (ViewData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">@ViewData["SuccessMessage"]</div>
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditProfile" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group mb-2">
+                <label class="control-label mb-1">Email</label>
+                <input asp-for="EmailAddress" class="form-control" />
+                <span asp-validation-for="EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="FistName"  class="control-label mb-1">Fist Name</label>
+                <input asp-for="FistName" class="form-control" />
+                <span asp-validation-for="FistName" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="MiddleName" class="control-label mb-1">Middle Name</label>
+                <input asp-for="MiddleName" class="form-control" />
+                <span asp-validation-for="MiddleName" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="LastName" class="control-label mb-1">Last Name</label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="Password" class="control-label mb-1">Password</label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="UserId" />
+            <input type="hidden" asp-for="Source" />
+            <input type="hidden" asp-for="PubId" />
+            <input type="hidden" asp-for="RoleId" />
+            <input type="hidden" asp-for="HireDate" />
+            <div class="form-group mb-2">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
